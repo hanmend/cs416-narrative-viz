@@ -61,16 +61,16 @@
 </head>
 <style> circle {fill: lightblue; stroke: black;} </style>
 <body onload='init()'>
-<svg width=300 height=300>
+<svg width=1000 height=1000>
 </svg>
 <script>
 async function init() {
 const data = await d3.csv("https://flunky.github.io/cars2017.csv");
-var cx = d3.scaleLog().base(10).domain([10,150]).range([0,200]);
+var cx = d3.scaleLog().base(10).domain([10,150]).range([0,700]);
 var cy = d3.scaleLog().base(10).domain([10,150]).range([200,0]);
 d3.select("svg")
   .append("g")
-  .attr("transform", "translate(50,50)")
+  .attr("transform", "translate(100,100)")
   .selectAll("circle")
   .data(data)
   .enter()
@@ -79,14 +79,14 @@ d3.select("svg")
     .attr("cy", function(d,i) { return cy(d.AverageHighwayMPG); })
     .attr("r", function(d,i) { return parseInt(d.EngineCylinders)+2; });
 d3.select("svg").append("g")
-  .attr("transform", "translate(50,50)")
+  .attr("transform", "translate(100,100)")
   .call(
     d3.axisLeft(cy)
     .tickValues([10,20,50,100])
     .tickFormat(d3.format("~s"))
   );
 d3.select('svg').append("g")
-  .attr("transform", "translate(50,250)")
+  .attr("transform", "translate(100,900)")
   .call(
     d3.axisBottom(cx)
     .tickValues([10,20,50,100])
