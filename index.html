@@ -61,13 +61,13 @@
 </head>
 <style> circle {fill: lightblue; stroke: black;} </style>
 <body onload='init()'>
-<svg width=1000 height=1000>
+<svg width=800 height=800>
 </svg>
 <script>
 async function init() {
 const data = await d3.csv("https://flunky.github.io/cars2017.csv");
-var cx = d3.scaleLog().base(10).domain([10,150]).range([0,800]);
-var cy = d3.scaleLog().base(10).domain([10,150]).range([800,0]);
+var cx = d3.scaleLog().base(10).domain([10,150]).range([0,600]);
+var cy = d3.scaleLog().base(10).domain([10,150]).range([600,0]);
 d3.select("svg")
   .append("g")
   .attr("transform", "translate(100,100)")
