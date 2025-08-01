@@ -75,7 +75,7 @@ d3.select("svg")
     .attr("cx", function(d,i) { return cx(d.AverageCityMPG); })
     .attr("cy", function(d,i) { return cy(d.AverageHighwayMPG); })
     .attr("r", function(d,i) { return parseInt(d.EngineCylinders)+2; });
-d3.select('svg').append("g")
+d3.select("svg").append("g")
   .attr("transform", "translate(50,50)")
   .call(
     d3.axisLeft(cy)
