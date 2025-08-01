@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>D3.js Starter</title>
+    <!-- Optional: Link to your CSS file if you have any styling -->
+    <!-- <link rel="stylesheet" href="style.css"> -->
+</head>
+<body>
+    <h1>My D3.js Visualization</h1>
+
+    <!-- This is where your D3 visualization will be appended -->
+    <div id="chart-container"></div>
+
+    <!-- Load D3.js library from a CDN -->
+    <script src="https://d3js.org/d3.v7.min.js"></script>
+
+    <!-- Your D3.js visualization code goes here -->
+    <script>
+        // Example D3 code: Appending a simple SVG rectangle
+        // Sample data
+        const data = [
+        { x: 50, y: 100, radius: 10,  color: "steelblue", tooltip: "Data Point 1" },
+        { x: 150, y: 150, radius: 15, color: "orange",    tooltip: "Data Point 2" },
+        { x: 250, y: 80,  radius: 20, color: "green",     tooltip: "Data Point 3" }
+        ];
+
+        // Select the SVG container
+        const svg = d3.select("#chart-container svg");
+
+        // Create circles for each data point
+        svg.selectAll("circle")
+        .data(data)
+        .join("circle")
+        .attr("cx", d => d.x)
+        .attr("cy", d => d.y)
+        .attr("r", d => d.radius)
+        .attr("fill", d => d.color)
+        .on("mouseover", function(event, d) { // Add mouseover event listener
+            d3.select(this)
+            .attr("stroke", "black")
+            .attr("stroke-width", 2); // Highlight on hover
+
+            // Display tooltip
+            svg.append("text")
+            .attr("class", "tooltip")
+            .attr("x", d.x + d.radius + 5)
+            .attr("y", d.y)
+            .text(d.tooltip);
+        })
+        .on("mouseout", function(event, d) { // Add mouseout event listener
+            d3.select(this)
+            .attr("stroke", null); // Remove highlight
+
+            // Remove tooltip
+            d3.select(".tooltip").remove();
+        });
+    </script>
+</body>
+</html>
