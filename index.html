@@ -1,25 +1,16 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>D3.js Starter</title>
-    <!-- Optional: Link to your CSS file if you have any styling -->
-    <!-- <link rel="stylesheet" href="style.css"> -->
+  <title>D3 Interactive Visualization</title>
+  <script src="https://d3js.org/d3.v7.min.js"></script> // or a specific version
 </head>
 <body>
-    <h1>My D3.js Visualization</h1>
-
-    <!-- This is where your D3 visualization will be appended -->
-    <div id="chart-container"></div>
-
-    <!-- Load D3.js library from a CDN -->
-    <script src="https://d3js.org/d3.v7.min.js"></script>
-
+  <h1>My Interactive D3 Chart</h1>
+  <div id="chart-container">
+    <svg width="600" height="400"></svg>
+  </div>
     <!-- Your D3.js visualization code goes here -->
     <script>
-        // Example D3 code: Appending a simple SVG rectangle
-        // Sample data
         const data = [
         { x: 50, y: 100, radius: 10,  color: "steelblue", tooltip: "Data Point 1" },
         { x: 150, y: 150, radius: 15, color: "orange",    tooltip: "Data Point 2" },
