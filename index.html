@@ -72,8 +72,8 @@ var color = {
     "Gasoline": "lightyellow", 
     "Diesel": "blue"
 };
-var cx = d3.scaleLog().base(10).domain([10,150]).range([0,200]);
-var cy = d3.scaleLog().base(10).domain([10,150]).range([200,0]);
+var cx = d3.scaleLog().base(10).domain([10,150]).range([0,600]);
+var cy = d3.scaleLog().base(10).domain([10,150]).range([600,0]);
 d3.select("svg")
   .append("g")
   .attr("transform", "translate(100,100)")
