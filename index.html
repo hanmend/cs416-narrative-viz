@@ -64,7 +64,7 @@
 <h2>2017 Automobile Fuel Efficiency</h2>
 <!-- Clickable button -->
 <button type="button">Learn About Efficiency by Engine Fuel Type ></button>
-<svg width=600 height=600>
+<svg width=800 height=800>
 </svg>
 <script>
 async function init() {
@@ -87,15 +87,15 @@ d3.select("svg")
     .attr("cy", function(d,i) { return cy(d.AverageHighwayMPG); })
     .attr("r", function(d,i) { return 2*(parseInt(d.EngineCylinders)+2); })
     .attr("fill", function(d,i) { return color[d.Fuel]; });
-d3.select('svg').append("g")
-//   .attr("transform", "translate(50,50)")
+d3.select("svg").append("g")
+  .attr("transform", "translate(50,50)")
   .call(
     d3.axisLeft(cy)
     .tickValues([10,20,50,100])
     .tickFormat(d3.format("~s"))
   );
-d3.select('svg').append("g")
-//   .attr("transform", "translate(50,650)")
+d3.select("svg").append("g")
+  .attr("transform", "translate(50,650)")
   .call(
     d3.axisBottom(cx)
     .tickValues([10,20,50,100])
