@@ -68,9 +68,9 @@
 async function init() {
 const data = await d3.csv("https://flunky.github.io/cars2017.csv");
 var color = {
-    "Electricity": "lightgreen", 
-    "Gasoline": "lightyellow", 
-    "Diesel": "lightblue"
+    "Electricity": "green", 
+    "Gasoline": "yellow", 
+    "Diesel": "blue"
 };
 var cx = d3.scaleLog().domain([10,150]).range([0,1000]);
 var cy = d3.scaleLog().domain([10,150]).range([600,0]);
