@@ -83,7 +83,7 @@ d3.select("svg")
   .append("circle")
     .attr("cx", function(d,i) { return cx(d.AverageCityMPG); })
     .attr("cy", function(d,i) { return cy(d.AverageHighwayMPG); })
-    .attr("r", function(d,i) { return parseInt(d.EngineCylinders)+4; })
+    .attr("r", function(d,i) { return 2*(parseInt(d.EngineCylinders)+2); })
     .attr("fill", function(d,i) { return color[d.Fuel]; });
 d3.select('svg').append("g")
   .attr("transform", "translate(50,50)")
