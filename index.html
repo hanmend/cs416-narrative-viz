@@ -62,7 +62,7 @@
 <style> circle {stroke: black;} </style>
 <body onload='init()'>
 <h1>2017 Automobile Fuel Efficiency</h1>
-<svg width=1200 height=800>
+<svg width=800 height=800>
 </svg>
 <script>
 async function init() {
@@ -72,7 +72,7 @@ var color = {
     "Gasoline": "lightyellow", 
     "Diesel": "blue"
 };
-var cx = d3.scaleLog().base(10).domain([10,150]).range([0,1000]);
+var cx = d3.scaleLog().base(10).domain([10,150]).range([0,600]);
 var cy = d3.scaleLog().base(10).domain([10,150]).range([600,0]);
 d3.select("svg")
   .append("g")
@@ -93,7 +93,7 @@ d3.select("svg").append("g")
     .tickFormat(d3.format("~s"))
   );
 d3.select('svg').append("g")
-  .attr("transform", "translate(100,700)")
+  .attr("transform", "translate(100,500)")
   .call(
     d3.axisBottom(cx)
     .tickValues([10,20,50,100])
