@@ -71,8 +71,8 @@ var color = {
     "Gasoline": "lightyellow", 
     "Diesel": "lightblue"
 };
-var cx = d3.scaleLinear().domain([0,150]).range([0,1000]);
-var cy = d3.scaleLinear().domain([0,150]).range([600,0]);
+var cx = d3.scaleLog().domain([10,150]).range([0,1000]);
+var cy = d3.scaleLog().domain([10,150]).range([600,0]);
 d3.select("svg")
   .append("g")
   .attr("transform", "translate(100,100)")
@@ -95,7 +95,7 @@ d3.select('svg').append("g")
   .attr("transform", "translate(100,900)")
   .call(
     d3.axisBottom(cx)
-    .tickValues([20,40,60,80,100,120,140, 160])
+    .tickValues([20,40,60,80,100,120,140,160])
     .tickFormat(d3.format("~s"))
   );
 }
