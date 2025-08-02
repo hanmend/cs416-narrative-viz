@@ -69,7 +69,7 @@ async function init() {
 const data = await d3.csv("https://flunky.github.io/cars2017.csv");
 var color = {
     "Electricity": "green", 
-    "Gasoline": "yellow", 
+    "Gasoline": "lightyellow", 
     "Diesel": "blue"
 };
 var cx = d3.scaleLog().domain([10,150]).range([0,1000]);
@@ -83,7 +83,7 @@ d3.select("svg")
   .append("circle")
     .attr("cx", function(d,i) { return cx(d.AverageCityMPG); })
     .attr("cy", function(d,i) { return cy(d.AverageHighwayMPG); })
-    .attr("r", function(d,i) { return parseInt(d.EngineCylinders); })
+    .attr("r", function(d,i) { return parseInt(d.EngineCylinders)*2; })
     .attr("fill", function(d,i) { return color[d.Fuel]; });
 d3.select("svg").append("g")
   .attr("transform", "translate(100,100)")
