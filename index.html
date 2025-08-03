@@ -18,23 +18,10 @@ async function init() {
 const data = await d3.csv("https://flunky.github.io/cars2017.csv");
 var cx = d3.scaleLog().base(10).domain([10,150]).range([0,300]);
 var cy = d3.scaleLog().base(10).domain([10,150]).range([300,0]);
-var color = {
-    "Electricity": "green", 
-    "Gasoline": "lightyellow", 
-    "Diesel": "blue"
-};
 d3.select("button")
   .on("click", function(d) {
-    window.location.href = "https://www.google.com/"; 
+    window.location.href = "https://hanmend.github.io/cs416-narrative-viz-scene-2/"; 
   });
-// d3.select("svg")
-//   .append("myLegend")
-//   .data(data)
-//   .enter()
-//   .append("g")
-//   .append("button")
-//   .attr("text", "")
-
 d3.select("svg")
   .append("g")
   .attr("transform", "translate(50,50)")
@@ -46,7 +33,7 @@ d3.select("svg")
     .attr("cy", function(d,i) { return cy(d.AverageHighwayMPG); })
     .attr("r", function(d,i) { return (parseInt(d.EngineCylinders)+2); })
     .attr("stroke", "black")
-    .attr("fill", function(d,i) { return color[d.Fuel]; });
+    .attr("fill", "lightblue");
 d3.select("svg").append("g")
   .attr("transform", "translate(50,50)")
   .call(
