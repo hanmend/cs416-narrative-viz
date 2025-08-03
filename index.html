@@ -76,6 +76,7 @@ var cx = d3.scaleLog().base(10).domain([10,150]).range([0,600]);
 var cy = d3.scaleLog().base(10).domain([10,150]).range([600,0]);
 d3.select('svg')
   .append('button')
+  .attr("transform", "translate(100,50)")
   .text('Click Me! 🚀')
   .on('click', function() {
     alert('Button was clicked!');
