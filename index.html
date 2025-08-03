@@ -76,7 +76,7 @@ var cx = d3.scaleLog().base(10).domain([10,150]).range([0,600]);
 var cy = d3.scaleLog().base(10).domain([10,150]).range([600,0]);
 d3.select("svg")
   .append("g")
-  .attr("transform", "translate(50,50)")
+//   .attr("transform", "translate(50,50)")
   .selectAll("circle")
   .data(data)
   .enter()
