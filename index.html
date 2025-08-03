@@ -6,20 +6,26 @@
 </head>
 <style> circle {stroke: black;} </style>
 <body onload='init()'>
-<button id="myButton" style="margin: 20px;">Click Me</button>
 <h2>2017 Automobile Fuel Efficiency</h2>
-<svg width=800 height=800>
-</svg>
+<div id="chart-container">
+    <button id="myButton" style="margin: 20px;">Click Me</button>
+    <svg width="800" height="800"></svg>
+  </div>
 <script>
 async function init() {
 const data = await d3.csv("https://flunky.github.io/cars2017.csv");
+var cx = d3.scaleLog().base(10).domain([10,150]).range([0,600]);
+var cy = d3.scaleLog().base(10).domain([10,150]).range([600,0]);
 var color = {
     "Electricity": "green", 
     "Gasoline": "lightyellow", 
     "Diesel": "blue"
 };
-var cx = d3.scaleLog().base(10).domain([10,150]).range([0,600]);
-var cy = d3.scaleLog().base(10).domain([10,150]).range([600,0]);
+d3.select("button")
+  .on("click", function(event, d) {
+    d3.select(this)
+      .style("background-color", "blue")
+  });
 d3.select("svg")
   .append("g")
   .attr("transform", "translate(50,50)")
