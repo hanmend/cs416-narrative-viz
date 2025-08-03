@@ -67,18 +67,6 @@
 <script>
 async function init() {
 const data = await d3.csv("https://flunky.github.io/cars2017.csv");
-// Initialize the button
-var dropdownButton = d3.select("svg")
-  .append('select')
-// add the options to the button
-dropdownButton // Add a button
-  .selectAll('myOptions') // Next 4 lines add 6 options = 6 colors
- 	.data(data.Fuel)
-  .enter()
-	.append('option')
-  .text(function (d) { return d; }) // text showed in the menu
-  .attr("value", function (d) { return d; }) // corresponding value returned by the button
-
 var color = {
     "Electricity": "green", 
     "Gasoline": "lightyellow", 
@@ -86,6 +74,12 @@ var color = {
 };
 var cx = d3.scaleLog().base(10).domain([10,150]).range([0,600]);
 var cy = d3.scaleLog().base(10).domain([10,150]).range([600,0]);
+d3.select('svg')
+  .append('button')
+  .text('Click Me! 🚀')
+  .on('click', function() {
+    alert('Button was clicked!');
+  });
 d3.select("svg")
   .append("g")
   .attr("transform", "translate(50,50)")
