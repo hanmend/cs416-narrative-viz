@@ -62,11 +62,23 @@
 <style> circle {stroke: black;} </style>
 <body onload='init()'>
 <h2>2017 Automobile Fuel Efficiency</h2>
-<svg width=600 height=600>
+<svg width=800 height=800>
 </svg>
 <script>
 async function init() {
 const data = await d3.csv("https://flunky.github.io/cars2017.csv");
+// Initialize the button
+var dropdownButton = d3.select("#dataviz_builtWithD3")
+  .append('select')
+// add the options to the button
+dropdownButton // Add a button
+  .selectAll('myOptions') // Next 4 lines add 6 options = 6 colors
+ 	.data(data.Fuel)
+  .enter()
+	.append('option')
+  .text(function (d) { return d; }) // text showed in the menu
+  .attr("value", function (d) { return d; }) // corresponding value returned by the button
+
 var color = {
     "Electricity": "green", 
     "Gasoline": "lightyellow", 
@@ -76,7 +88,7 @@ var cx = d3.scaleLog().base(10).domain([10,150]).range([0,600]);
 var cy = d3.scaleLog().base(10).domain([10,150]).range([600,0]);
 d3.select("svg")
   .append("g")
-//   .attr("transform", "translate(50,50)")
+  .attr("transform", "translate(50,50)")
   .selectAll("circle")
   .data(data)
   .enter()
