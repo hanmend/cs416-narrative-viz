@@ -8,7 +8,7 @@
 <body onload='init()'>
 <h2>2017 Automobile Fuel Efficiency</h2>
 <div id="chart-container">
-    <button id="myButton" style="margin: 20px;">Click Me</button>
+    <button id="myButton" style="margin: 20px;">Learn more about fuel efficiency by engine fuel type! >></button>
     <svg width="800" height="800"></svg>
   </div>
 <script>
@@ -22,6 +22,7 @@ var color = {
     "Diesel": "blue"
 };
 d3.select("button")
+  .attr("transform", "translate(25,25)")
   .on("click", function(event, d) {
     d3.select(this)
       .style("background-color", "blue")
