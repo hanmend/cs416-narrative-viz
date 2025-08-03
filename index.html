@@ -41,6 +41,7 @@ d3.select("svg")
     .attr("cx", function(d,i) { return cx(d.AverageCityMPG); })
     .attr("cy", function(d,i) { return cy(d.AverageHighwayMPG); })
     .attr("r", function(d,i) { return (parseInt(d.EngineCylinders)+2); })
+    .attr("stroke", "black")
     .attr("fill", function(d,i) { return color[d.Fuel]; });
 d3.select("svg").append("g")
   .attr("transform", "translate(50,50)")
@@ -50,7 +51,7 @@ d3.select("svg").append("g")
     .tickFormat(d3.format("~s"))
   );
 d3.select("svg").append("g")
-  .attr("transform", "translate(50,250)")
+  .attr("transform", "translate(50,350)")
   .call(
     d3.axisBottom(cx)
     .tickValues([10,20,50,100])
