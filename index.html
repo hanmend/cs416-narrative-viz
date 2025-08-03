@@ -62,7 +62,19 @@
 <style> circle {stroke: black;} </style>
 <body onload='init()'>
 <h2>2017 Automobile Fuel Efficiency</h2>
-<svg width=800 height=800>
+<svg width=600 height=200>
+</svg>
+<script>
+    // add buttons / menus here
+d3.select("svg")
+  .append("button")
+  .attr("transform", "translate(100,100)")
+  .text("Click Me! 🚀")
+  .on("click", function() {
+    alert("Button was clicked!");
+  });
+</script>
+<svg width=600 height=600>
 </svg>
 <script>
 async function init() {
@@ -72,15 +84,8 @@ var color = {
     "Gasoline": "lightyellow", 
     "Diesel": "blue"
 };
-var cx = d3.scaleLog().base(10).domain([10,150]).range([0,600]);
-var cy = d3.scaleLog().base(10).domain([10,150]).range([600,0]);
-d3.select('svg')
-  .append('button')
-  .attr("transform", "translate(100,50)")
-  .text('Click Me! 🚀')
-  .on('click', function() {
-    alert('Button was clicked!');
-  });
+var cx = d3.scaleLog().base(10).domain([10,150]).range([0,500]);
+var cy = d3.scaleLog().base(10).domain([10,150]).range([500,0]);
 d3.select("svg")
   .append("g")
   .attr("transform", "translate(50,50)")
@@ -100,7 +105,7 @@ d3.select("svg").append("g")
     .tickFormat(d3.format("~s"))
   );
 d3.select("svg").append("g")
-  .attr("transform", "translate(50,650)")
+  .attr("transform", "translate(50,550)")
   .call(
     d3.axisBottom(cx)
     .tickValues([10,20,50,100])
