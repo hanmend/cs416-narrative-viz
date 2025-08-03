@@ -1,59 +1,4 @@
 <!DOCTYPE html>
-<!-- <html>
-<head>
-  <title>D3 Interactive Visualization</title>
-  <script src="https://d3js.org/d3.v7.min.js"></script> 
-</head>
-<body>
-  <h1>My Interactive D3 Chart</h1>
-  <div id="chart-container">
-    <svg width="600" height="400"></svg>
-  </div>
-  <script>
-    // Your D3.js code will go here
-    // Sample data
-    const data = [
-    { x: 50, y: 100, radius: 10,  color: "steelblue", tooltip: "Data Point 1" },
-    { x: 150, y: 150, radius: 15, color: "orange",    tooltip: "Data Point 2" },
-    { x: 250, y: 80,  radius: 20, color: "green",     tooltip: "Data Point 3" }
-    ];
-
-    // Select the SVG container
-    const svg = d3.select("#chart-container svg");
-
-    // Create circles for each data point
-    svg.selectAll("circle")
-    .data(data)
-    .join("circle")
-    .attr("cx", d => d.x)
-    .attr("cy", d => d.y)
-    .attr("r", d => d.radius)
-    .attr("fill", d => d.color)
-    .on("mouseover", function(event, d) { // Add mouseover event listener
-        d3.select(this)
-        .attr("stroke", "black")
-        .attr("stroke-width", 2); // Highlight on hover
-
-        // Display tooltip
-        svg.append("text")
-        .attr("class", "tooltip")
-        .attr("x", d.x + d.radius + 5)
-        .attr("y", d.y)
-        .text(d.tooltip);
-    })
-    .on("mouseout", function(event, d) { // Add mouseout event listener
-        d3.select(this)
-        .attr("stroke", null); // Remove highlight
-
-        // Remove tooltip
-        d3.select(".tooltip").remove();
-    });
-
-  </script>
-</body>
-</html> -->
-
-
 <html>
 <head>
 <title>2017 Automobile Data</title>
@@ -64,21 +9,10 @@
 <h2>2017 Automobile Fuel Efficiency</h2>
 <svg width=800 height=800>
 </svg>
+<button id="myButton" style="margin: 20px;">Click Me</button>
 <script>
 async function init() {
 const data = await d3.csv("https://flunky.github.io/cars2017.csv");
-// Initialize the button
-var dropdownButton = d3.select("#dataviz_builtWithD3")
-  .append('select')
-// add the options to the button
-dropdownButton // Add a button
-  .selectAll('myOptions') // Next 4 lines add 6 options = 6 colors
- 	.data(data.Fuel)
-  .enter()
-	.append('option')
-  .text(function (d) { return d; }) // text showed in the menu
-  .attr("value", function (d) { return d; }) // corresponding value returned by the button
-
 var color = {
     "Electricity": "green", 
     "Gasoline": "lightyellow", 
@@ -111,7 +45,6 @@ d3.select("svg").append("g")
     .tickValues([10,20,50,100])
     .tickFormat(d3.format("~s"))
   );
-
 }
 </script>
 </body>
